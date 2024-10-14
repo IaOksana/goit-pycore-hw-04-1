@@ -5,41 +5,43 @@
 
 from colorama import Fore, Back, Style
 import sys 
-from pathlib import Path
+from pathlib import Path, PurePath
+file_prefix = "    "
 
 # Скрипт відображати як імена директорій, так і імена файлів, використовуючи 
 # рекурсивний спосіб обходу директорій .
-def get_path_content (folder_path : str = '') :
 
+
+def get_path_content (folder_path : str = '', file_prefix :str = "    ") :
+
+    # Check if input is a path
     if Path(folder_path).exists() :
+        
         for x in Path(folder_path).iterdir() :
+
             if x.is_dir() :
-                print(Fore.GREEN + f"{x}")   
-                #If dir -> parse it          
-                get_path_content (x)
+                print(Fore.GREEN + f"{file_prefix} {x.name}\\")   
+                #If dir -> parse it       
+                get_path_content (x, file_prefix + "    ")
+
             else :
-                # Використання бібліотеки colorama для реалізації кольорового виведення.
-                print(Fore.BLUE + f"{x}")
-    else :
-        # Повинна бути перевірка та обробка помилок, наприклад, якщо вказаний шлях не існує або він не 
-        # веде до директорії.       
+                print(Fore.BLUE + f"{file_prefix} {x.name} ")
+    else :  
         print("Not a path")
 
 
 def main() :
     # Check if no input
     if len(sys.argv) > 1 :
-        # Скрипт має отримувати шлях до директорії як аргумент при запуску. Цей шлях вказує, де знаходиться 
-        # директорія, структуру якої потрібно відобразити.
+        # Скрипт має отримувати шлях до директорії як аргумент при запуску. 
         folder_path = sys.argv[1]
-        print(f"Your path {folder_path}")
+        print(Fore.YELLOW + f"Your path: {Path(folder_path).parent}\\\n{Path(folder_path).name}\\ ") 
         get_path_content(folder_path)
+        print(Style.RESET_ALL)
+
     else :
         print("No file path")
 
-    print(Style.RESET_ALL)
-
-#for test purpose: python task_3\main.py D:\MyRepos\goit-pycore-hw-04-1\.venv
 
 if __name__ == "__main__":
     main()
