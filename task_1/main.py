@@ -18,7 +18,7 @@ from processing import calculate_statistics
 # Результатом роботи функції є кортеж із двох чисел
 
 def main():
-    filename = "employees.txt"
+    filename = "task_1/employees.txt"
     raw_data = load_data(filename)
     employees = clean_data(raw_data)
     

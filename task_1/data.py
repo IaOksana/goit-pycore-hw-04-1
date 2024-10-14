@@ -5,7 +5,7 @@ from pathlib import Path
 def load_data(filename: str) -> list[str]:
     
     path = Path(filename)
-
+    
     if path.exists() :
         with open(filename, "r") as file:
             return file.readlines()
