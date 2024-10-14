@@ -3,15 +3,12 @@
 # візуального сприйняття, імена директорій та файлів мають відрізнятися за кольором.
 
 
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 import sys 
 from pathlib import Path, PurePath
-file_prefix = "    "
 
 # Скрипт відображати як імена директорій, так і імена файлів, використовуючи 
 # рекурсивний спосіб обходу директорій .
-
-
 def get_path_content (folder_path : str = '', file_prefix :str = "    ") :
 
     # Check if input is a path
