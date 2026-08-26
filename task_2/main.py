@@ -11,11 +11,13 @@
 
 from data import load_data, convert_data
 
+# Return the get cats info operation.
 def get_cats_info(path : str) -> list[dict] :
     raw_data = load_data(path)
     return (convert_data(raw_data))
 
 
+# Run the main operation.
 def main() :
     cats_info = get_cats_info("task_2/cats_info.txt")
     print(cats_info)
