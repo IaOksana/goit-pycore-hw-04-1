@@ -27,6 +27,7 @@ def get_path_content (folder_path : str = '', file_prefix :str = "    ") :
         print("Not a path")
 
 
+# Run the main operation.
 def main() :
     # Check if no input
     if len(sys.argv) > 1 :
