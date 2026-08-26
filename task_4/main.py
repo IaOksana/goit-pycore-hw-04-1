@@ -15,6 +15,7 @@ def parse_input(user_input):
     return cmd, *args
 
 
+# Add the add contact operation.
 def add_contact(args : list[str], contacts : list[dict] = []) -> str:
     if len(args) < 2 : return "Invalid data entered"
 
@@ -25,6 +26,7 @@ def add_contact(args : list[str], contacts : list[dict] = []) -> str:
     return "Contact added."
 
 
+# Update the change contact operation.
 def change_contact(args : list[str], contacts : list[dict]) -> str:
     if len(args) < 2 : return "Invalid data entered"
     name, phone = args
@@ -37,6 +39,7 @@ def change_contact(args : list[str], contacts : list[dict]) -> str:
     return ("No such contact")
 
     
+# Handle the show phone operation.
 def show_phone(args : list[str], contacts : list[dict]) -> str:
     if len(args) < 1 : return "Invalid data entered"
 
@@ -48,6 +51,7 @@ def show_phone(args : list[str], contacts : list[dict]) -> str:
 
 
 
+# Run the main operation.
 def main() :
     # словник Python для зберігання імен і номерів телефонів. Ім'я буде ключем, а номер телефону – значенням.
     contacts = []
