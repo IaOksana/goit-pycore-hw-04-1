@@ -2,6 +2,7 @@ import os, re
 from pathlib import Path
 
 
+# Load the load data operation.
 def load_data(filename: str) -> list[str]:
     
     path = Path(filename)
@@ -13,6 +14,7 @@ def load_data(filename: str) -> list[str]:
         print("No such file")
         return []
 
+# Handle the clean data operation.
 def clean_data(employees_data: list[str]) -> list[float]:
     
     if employees_data :
